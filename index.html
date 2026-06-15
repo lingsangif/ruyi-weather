@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>如意小天气</title>
+  <meta name="description" content="自动定位，每日推送天气 · 如意要开心">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="如意小天气">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- loading -->
+  <div class="loading">
+    <div class="spinner"></div>
+    <p>正在获取天气...</p>
+  </div>
+
+  <!-- error -->
+  <div class="error-msg" style="display:none">
+    <p>天气数据加载失败</p>
+    <button>点击重试</button>
+  </div>
+
+  <!-- main -->
+  <div class="main-content" style="display:none">
+
+    <!-- greeting -->
+    <div class="greeting" id="greeting">--</div>
+
+    <!-- header -->
+    <div class="header">
+      <h1>如意小天气</h1>
+      <div class="loc">
+        <span class="loc-name">北京</span>
+        <span>▼</span>
+      </div>
+    </div>
+
+    <!-- now -->
+    <div class="now-card">
+      <div class="now-left">
+        <div class="temp">--°</div>
+        <div class="desc">--</div>
+        <div class="feels">体感 --°C</div>
+      </div>
+      <div class="now-right">
+        <div class="icon">☀️</div>
+      </div>
+    </div>
+
+    <!-- details -->
+    <div class="detail-row">
+      <div class="detail-item">
+        <div class="val" id="wind">--</div>
+        <div class="label">风力</div>
+      </div>
+      <div class="detail-item">
+        <div class="val" id="humidity">--</div>
+        <div class="label">湿度</div>
+      </div>
+      <div class="detail-item">
+        <div class="val" id="visibility">--</div>
+        <div class="label">能见度</div>
+      </div>
+    </div>
+
+    <!-- air -->
+    <div class="air-row">
+      <span class="air-badge" id="air-badge">--</span>
+      <span class="air-info" id="air-info">--</span>
+    </div>
+
+    <!-- motto -->
+    <div class="motto" id="motto">--</div>
+
+    <!-- push toggle -->
+    <div class="push-bar">
+      <span>📬 每日推送（早8点）</span>
+      <div class="toggle"></div>
+    </div>
+
+    <!-- forecast -->
+    <div class="section-title">未来天气</div>
+    <div class="forecast-list">
+      <!-- filled by js -->
+    </div>
+
+    <!-- footer -->
+    <div class="footer">✨ 如意要开心 ✨</div>
+
+  </div>
+
+  <!-- city picker -->
+  <div class="city-overlay hidden">
+    <div class="city-dialog">
+      <h3>切换城市</h3>
+      <input type="text" placeholder="输入城市名，如 上海">
+      <div class="btns">
+        <button id="city-cancel">取消</button>
+        <button class="primary" id="city-ok">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- toast -->
+  <div class="toast hidden">提示</div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
